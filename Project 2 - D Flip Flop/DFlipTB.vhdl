@@ -46,9 +46,14 @@ architecture test of testbench is
 
 		i_D_sig <= '0';
 		wait for 5 ns;
-		
-		assert false report "Executed Testbench";
-		wait;
 	end process;
+	
+	stop_simulation : process
+	begin
+		wait for 30 ns; -- run the simulation for this duration
+		assert false
+			report "simulation ended"
+			severity failure;
+		end process;
 	
 end test;
