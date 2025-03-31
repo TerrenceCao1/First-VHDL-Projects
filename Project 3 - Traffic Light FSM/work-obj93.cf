@@ -1,0 +1,7 @@
+v 4
+file . "TrafFSM_TB.vhdl" "c6dea7044009616fd9ec71344bcce8d2dfb9611d" "20250331031854.783":
+  entity testbench at 1( 0) + 0 on 21;
+  architecture test of testbench at 7( 86) + 0 on 22;
+file . "TrafFSM.vhdl" "c35d7defa083eb3f6cf0c5dbb23936011d7abf08" "20250331031847.136":
+  entity fsm at 1( 0) + 0 on 19;
+  architecture behavior of fsm at 18( 404) + 0 on 20;
