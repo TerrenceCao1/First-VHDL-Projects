@@ -9,7 +9,7 @@ entity blink is
 end blink;
 
 architecture arch of blink is
---clock enable going from 1000hz to 1hz 
+--clock enable going from 100mHz to 1Hz 
     signal enable_clock_count   : integer := 0;
     signal enabled_clock    : std_logic := '0';
 
@@ -18,15 +18,17 @@ architecture arch of blink is
     process(i_CLK) begin
         if(rising_edge(i_CLK)) then
             enable_clock_count <= enable_clock_count + 1;
-            if(enable_clock_count = 999) then
+            if(enable_clock_count = 99999999) then
                 enabled_clock <= not enabled_clock;
                 enable_clock_count <= 0;
             end if;
         end if;
     end process;
 
-    process(enabled_clock) begin
-        o_LED <= enabled_clock;
+    process(i_CLK) begin
+        if(enabled_clock = '1') then
+            o_LED <= enabled_clock;
+        end if;
     end process;
 
 end architecture;
